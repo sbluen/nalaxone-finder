@@ -5,15 +5,15 @@ Created on Oct 23, 2016
 '''
 
 from flask import Flask
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route("/")
+@application.route("/")
 def hello():
     return "Hello World!"
 
-@app.route("/set")
-def hello():
+@application.route("/set")
+def set():
     return "Update request received"
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080)
+    application.run(host='0.0.0.0', port=8080)
