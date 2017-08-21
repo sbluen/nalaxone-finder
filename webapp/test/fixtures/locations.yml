@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contents: MyString
+  status: MyString
+  lat: 1.5
+  long: 1.5
+  address: MyString
+  posterid: 1
+
+two:
+  contents: MyString
+  status: MyString
+  lat: 1.5
+  long: 1.5
+  address: MyString
+  posterid: 1
