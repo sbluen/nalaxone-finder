@@ -12,3 +12,9 @@ def get_coords(address)
    return [lat, lng]
 end
 
+def get_address(lat, lng)
+   file = open("https://maps.googleapis.com/maps/api/geocode/json?address=#{URI.escape(address)}")
+   contents = file.read()
+   hash = JSON.parse(contents)
+   address = hash["results"][0]["formatted_address"]
+end
