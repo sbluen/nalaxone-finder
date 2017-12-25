@@ -23,17 +23,17 @@
 
   <div class="field">
     <%= f.label :lat %>
-    <%= f.text_field :lat %>
+    <%= f.text_field :lat :onfocusout => 'populate_location()' %>
   </div>
 
   <div class="field">
     <%= f.label :long %>
-    <%= f.text_field :long %>
+    <%= f.text_field :long, :onfocusout => 'populate_location()' %>
   </div>
 
   <div class="field">
     <%= f.label :address %>
-    <%= f.text_field :address %>
+    <%= f.text_field :address :onfocusout => 'populate_location()' %>
   </div>
 
   <div class="actions">
