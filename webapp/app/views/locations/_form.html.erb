@@ -20,22 +20,20 @@
     <%= f.label :status %>
     <%= f.text_field :status %>
   </div>
-
   <div class="field">
     <%= f.label :lat %>
-    <%= f.text_field :lat, :onfocusout => 'populate_location()' %>
+    <%= f.text_field :lat, :class => 'recalculate' %>
   </div>
 
   <div class="field">
     <%= f.label :long %>
-    <%= f.text_field :long, :onfocusout => 'populate_location()' %>
+    <%= f.text_field :long, :class => 'recalculate' %>
   </div>
 
   <div class="field">
     <%= f.label :address %>
-    <%= f.text_field :address, :onfocusout => 'populate_location()' %>
+    <%= f.text_field :address, :class => 'recalculate' %>
   </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>
