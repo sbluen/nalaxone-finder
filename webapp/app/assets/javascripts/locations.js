@@ -17,3 +17,26 @@ function populate_location(){
     }
 
 }
+
+
+//Using code derived from google api
+function initMap(){
+    var myLatlng = {lat: 37.4220, lng: -122.0841};
+    var map = new google.maps.Map(document.getElementById('formmap'), {
+        zoom: 4,
+        center: myLatlng
+    });
+    var haveMarker = false;
+    var marker
+    map.addListener('click', function(e){
+        if (haveMarker){
+            marker.setMap(null);
+        }
+        marker = new google.maps.Marker({
+          position: e.latLng,
+          map: map,
+          title: 'Selected position'
+        });
+    })
+}
+
