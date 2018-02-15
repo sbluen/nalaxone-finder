@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $.getScript("https://maps.googleapis.com/maps/api/js");
     $('.recalculate').focusout(populate_location);
 })
 

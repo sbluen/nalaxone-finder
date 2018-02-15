@@ -20,6 +20,10 @@
     <%= f.label :status %>
     <%= f.text_field :status %>
   </div>
+  <div id="formmap" style="height:30vw;width:50vw;"></div>
+  <script defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr3JfJLWNIedXffxeIDrc-Nqq0VAwbg4w&callback=initMap">
+  </script> 
   <div class="field">
     <%= f.label :lat %>
     <%= f.text_field :lat, :class => 'recalculate' %>
