@@ -1,3 +1,5 @@
+require "#{Rails.root}/lib/locations_helper.rb"
+
 class LocationsController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_location, only: [:show, :edit, :update, :destroy]
@@ -26,7 +28,13 @@ class LocationsController < ApplicationController
   # POST /locations.json
   def create
     if not location_params or location_params.key?(:posterid) then
-      redirect_to request.referer, :alert => "Invalid parameters."
+      redirect_to request.referer, :alert => "Missing parameters."
+      return
+    end
+    if get_coords(location_params[:address]) != [location_params[:lat].to_f, location_params[:long].to_f] then
+      logger.debug location_params
+      logger.debug get_coords(location_params[:address])
+      redirect_to request.referer, :alert => "Invalid parameters, address check failed."
       return
     end
     @location = Location.new(location_params)
