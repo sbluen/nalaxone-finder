@@ -3,7 +3,7 @@ $(document).ready(function() {
 })
 
 var haveMarker;
-var myMap;
+var myInputMap;
 var marker;
 
 function populate_location(){
@@ -53,7 +53,7 @@ function populate_location(){
     }
     marker = new google.maps.Marker({
         position: {lat: parseFloat(location_lat), lng: parseFloat(location_lng)},
-      map: myMap,
+      map: myInputMap,
       title: 'Selected position',
     });
     haveMarker = true;
@@ -62,7 +62,7 @@ function populate_location(){
 //Using code derived from google api
 function initInputMap(){
     var myLatlng = {lat: 37.4220, lng: -122.0841};
-    myMap = new google.maps.Map(document.getElementById('formmap'), {
+    myInputMap = new google.maps.Map(document.getElementById('formMap'), {
         zoom: 4,
         center: myLatlng
     });
@@ -74,7 +74,7 @@ function initInputMap(){
         }
         marker = new google.maps.Marker({
           position: e.latLng.toJSON(),
-          map: myMap,
+          map: myInputMap,
           title: 'Selected position',
         });
         haveMarker = true;
@@ -93,5 +93,29 @@ function initInputMap(){
             document.getElementById("location_address").value = location_address;
         });
     })
+}
+
+//Using code derived from google api
+function initIndexMap(){
+    var myLatlng = {lat: 37.4220, lng: -122.0841};
+    var myIndexMap = new google.maps.Map(document.getElementById('indexMap'), {
+        zoom: 4,
+        center: myLatlng
+    });
+    url = "/locations.json";
+    $.getJSON(url, function(data){
+        if (data.length == 0){
+            //no valid results
+            document.getElementById("location_address").value = "";
+            return;
+        }
+        for (var i=0; i<data.length; i++){
+            var indexMarker = new google.maps.Marker({
+                position: new google.maps.LatLng(data[i]["lat"], data[i]["long"]),
+                map: myIndexMap,
+                title: data[i]["contents"],
+            })
+        }
+    }); 
 }
 
