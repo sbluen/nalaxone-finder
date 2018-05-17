@@ -67,7 +67,7 @@ function initInputMap(){
         center: myLatlng
     });
     haveMarker = false;
-    myMap.addListener('click', function(e){
+    myInputMap.addListener('click', function(e){
         if (haveMarker){
             marker.setMap(null);
             haveMarker = false;
