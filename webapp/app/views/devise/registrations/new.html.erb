@@ -18,6 +18,17 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
     </div>
-     <%= f.submit 'Sign up', :class => 'button right' %>
+    <label for="signup_agree">
+      <table>
+        <tr>
+            <td rowspan="2"><input vertical-align="middle" type="checkbox" id="signup_agree" required="true"></td>
+            <td>I have read and agree</td>
+        </tr>
+        <tr>
+          <td>to the privacy policy</td>
+        </tr>
+      </table>
+    </label>
+      <%= f.submit 'Sign up', :class => 'button right' %>
   <% end %>
 </div>
